@@ -5,11 +5,11 @@ const port = 3000;
 const routes = require("./routes");
 const server = http.createServer(routes.handleRequest);
 
-let buf = new Buffer('This is my pretty example');
+let buf = Buffer.from('This is my pretty example');
 let json = JSON.stringify(buf);
 let string = buf.toString();
 
-console.log("buf: ", buf);
+console.log("buf: ", buf.length);
 console.log("json: ", json);
 console.log("string: ", string);
 
