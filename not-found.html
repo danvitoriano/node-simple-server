@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<style>
+    body,
+    html {
+        margin: 0;
+        background-color: #B9B5AA;
+    }
+
+    #gameboy {
+        position: absolute;
+        top: calc(50% - 410px/2);
+        margin-left: calc(50% - 125px);
+        animation: hop 1.5s infinite ease;
+    }
+
+    @keyframes hop {
+        0% {
+            top: calc(50% - 410px/2);
+        }
+
+        50% {
+            top: calc(45% - 410px/2);
+        }
+
+        100% {
+             top: calc(50% - 410px/2);
+        }
+    }
+
+    #border {
+        position: absolute;
+        width: 250px;
+        height: 400px;
+        border: black solid 5px;
+        border-radius: 15px 25px 75px 25px;
+        z-index: 5;
+    }
+
+    #border2 {
+        width: 200px;
+        height: 350px;
+        border: black solid 5px;
+        border-radius: 15px 25px 75px 25px;
+        background-color: #7D878F;
+        padding: 25px;
+        z-index: 5;
+    }
+
+    #display {
+        width: 195px;
+        height: 175px;
+        border: black solid 2px;
+        border-radius: 15px 15px 50px 15px;
+        background-color: #7D878F;
+
+    }
+
+    /* Cross */
+    #cross {
+        margin: 30px 0 0 0;
+        width: 75px;
+        height: 75px;
+
+    }
+
+    #c1 {
+        margin: 25px 0 0 0;
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        background-color: #4d5459;
+        border-radius: 5px 0 0 5px;
+    }
+
+    #c2 {
+        margin: 0 0 0 25px;
+        width: 25px;
+        height: 75px;
+        position: absolute;
+        background-color: #4d5459;
+        border-radius: 5px 5px 5px 5px;
+    }
+
+    #c3 {
+        margin: 25px 0 0 50px;
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        background-color: #4d5459;
+        border-radius: 0 5px 5px 0;
+    }
+
+    #c-dot {
+        width: 15px;
+        height: 15px;
+        margin: 26px 0 0 1px;
+        border-radius: 20px;
+        border: #3e4347 solid;
+    }
+
+    /* Buttons */
+
+    #buttons {
+        float: right;
+        margin: -50px 0 0 0;
+        width: 80px;
+        height: 60px;
+    }
+
+    #b1 {
+        margin: 0 0 0 0;
+        width: 35px;
+        height: 35px;
+        float: right;
+        background-color: black;
+        border-radius: 17.5px;
+    }
+
+    #b2 {
+        margin: 25px 0 0 0;
+        width: 35px;
+        height: 35px;
+        float: left;
+        background-color: black;
+        border-radius: 17.5px;
+    }
+
+    #long-buttons {
+        margin: 20px 0 0 45px;
+        width: 80px;
+        height: 30px;
+        position: absolute;
+    }
+
+    #l1 {
+        margin: 0 0 0 10px;
+        width: 5px;
+        height: 25px;
+        border-radius: 5px;
+        background-color: #7D878F;
+        border: solid #4d5459;
+        transform: rotate(60deg);
+        position: absolute;
+    }
+
+    #l2 {
+        margin: 0 0 0 55px;
+        width: 5px;
+        height: 25px;
+        border-radius: 5px;
+        background-color: #7D878F;
+        border: solid #4d5459;
+        transform: rotate(60deg);
+        position: absolute;
+    }
+
+    #grid {
+        margin: 41px 0 0 140px;
+        width: 80px;
+        height: 40px;
+        transform: rotate(-31deg);
+    }
+
+    #bar1 {
+        width: 7px;
+        height: 35px;
+        border-radius: 5px 5px 0 0;
+        background-color: #4d5459;
+        position: absolute;
+    }
+
+    #bar2 {
+        width: 7px;
+        height: 39px;
+        border-radius: 5px 5px 0 0;
+        background-color: #4d5459;
+        position: absolute;
+        margin: 0 0 0 10px;
+    }
+
+    #bar3 {
+        width: 7px;
+        height: 42px;
+        border-radius: 5px 5px 0 0;
+        background-color: #4d5459;
+        position: absolute;
+        margin: 0 0 0 20px;
+    }
+
+    #bar4 {
+        width: 7px;
+        height: 43px;
+        border-radius: 5px 5px 0 0;
+        background-color: #4d5459;
+        position: absolute;
+        margin: 0 0 0 30px;
+    }
+
+    #bar5 {
+        width: 7px;
+        height: 44px;
+        border-radius: 5px 5px 0 0;
+        background-color: #4d5459;
+        position: absolute;
+        margin: 0 0 0 40px;
+    }
+
+    #bar6 {
+        width: 7px;
+        height: 42px;
+        border-radius: 5px 5px 0 0;
+        background-color: #4d5459;
+        position: absolute;
+        margin: 0 0 0 50px;
+    }
+
+    #bar7 {
+        width: 7px;
+        height: 40px;
+        border-radius: 5px 5px 0 0;
+        background-color: #4d5459;
+        position: absolute;
+        margin: 0 0 0 60px;
+    }
+
+    #bar8 {
+        width: 7px;
+        height: 36px;
+        border-radius: 5px 5px 0 0;
+        background-color: #4d5459;
+        position: absolute;
+        margin: 0 0 0 70px;
+    }
+
+    img {
+        width: 250px;
+        position: absolute;
+        opacity: 0.25;
+    }
+
+    #error-text-error {
+        font-family: 'Rubik Mono One', sans-serif;
+        text-align: center;
+        font-size: 20px;
+        margin: 15px 0px 0px 0px;
+    }
+
+    #error-text-404 {
+        font-family: 'Rubik Mono One', sans-serif;
+        text-align: center;
+        font-size: 60px;
+        margin: 5px 0px 0px 0px;
+    }
+
+    #error-text-notfound {
+        font-family: 'Source Code Pro', monospace;
+        text-align: center;
+        font-size: 21px;
+        margin: 0px;
+
+    }
+
+    #shadow {
+        margin-top: calc( 55% - 410px/2);
+        position: absolute;
+        display: block;
+        height: 45px;
+        width: 300px;
+        border-radius: 50%;
+        background-color: #B2AEA4;
+        animation: scale 1.5s infinite;
+    }
+
+    @keyframes scale {
+        0% {
+            width: 300px;
+            heigth: 45px;
+            margin-left: calc(50% - 145px);
+        }
+
+        50% {
+            width: 320px;
+            heigth: 50px;
+            margin-left: calc(50% - 155px);
+        }
+
+        100% {
+            width: 300px;
+            heigth: 45px;
+            margin-left: calc(50% - 145px);
+        }
+    }
+</style>
+
+<body>
+    <div id="gameboy">
+        <div id="border"></div>
+        <div id="border2">
+            <div id="display">
+                <p id="error-text-error">ERROR</p>
+                <h1 id="error-text-404">404</h1>
+                <p id="error-text-notfound">Site not found!</p>
+            </div>
+            <div id="cross">
+                <div id="c1"></div>
+                <div id="c2">
+                    <div id="c-dot"></div>
+                </div>
+                <div id="c3"></div>
+            </div>
+            <div id="buttons">
+                <div id="b1"></div>
+                <div id="b2"></div>
+            </div>
+            <div id="long-buttons">
+                <div id="l1"></div>
+                <div id="l2"></div>
+            </div>
+            <div id="grid">
+                <div id="bar1"></div>
+                <div id="bar2"></div>
+                <div id="bar3"></div>
+                <div id="bar4"></div>
+                <div id="bar5"></div>
+                <div id="bar6"></div>
+                <div id="bar7"></div>
+                <div id="bar8"></div>
+            </div>
+        </div>
+    </div>
+    <div id="shadow">
+
+    </div>
+</body>
+
+</html>
