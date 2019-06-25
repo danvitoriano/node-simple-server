@@ -24,15 +24,16 @@ module.exports = {
 
         switch (path) {
             case '/':
+            case '/index':
+            case '/index.html':
                 render('./index.html', response);
                 break;
             case '/about':
+            case '/about.html':
                 render('./about.html', response);
                 break;
             default:
-                response.writeHead(404);
-                response.write('Route not found');
-                response.end();
+                render('./not-found.html', response);
         }
     }
 }
